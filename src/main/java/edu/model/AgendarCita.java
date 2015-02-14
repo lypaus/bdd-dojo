@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AgendarCita {
 
@@ -22,11 +24,17 @@ public class AgendarCita {
 		} else {
 			
 			if(isFechaValida(fecha) && isHoraValida(hora)){
+				if(isEmail(correo)){
 				return true;
+				}else{
+					return false;
+				}
+			}else{
+				return false;
 			}
 			
 		}
-		return false;
+		
 	}
 	
 	public static boolean isFechaValida(String fecha) {
@@ -42,12 +50,22 @@ public class AgendarCita {
 	
 	public static boolean isHoraValida(String hora) {
         try {
-            SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+            SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm", Locale.getDefault());
             formatoHora.setLenient(false);
             formatoHora.parse(hora);
         } catch (ParseException e) {
             return false;
         }
         return true;
+    }
+	
+	public boolean isEmail(String correo) {
+		
+		if (correo.matches("^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[a-zA-Z]{2,4}$")){
+			return true;
+			}else{
+			return false;
+			}
+
     }
 }
