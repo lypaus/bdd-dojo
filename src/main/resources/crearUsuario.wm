@@ -1,0 +1,13 @@
+<html>
+	<head><title>MiAbog.com</title></head>
+	<body>
+	<h3>Formulario Creacion de Usuarios</h3>
+	<form action="/confirmarCrear" method="POST">
+		Nombre: <input type="text" id="nombreC" name="nombreC"/></br>
+		Apellido: <input type="text" id="apellidoC" name="apellidoC"/></br>
+		Usuario: <input type="text" id="usuarioC" name="usuarioC"/></br>
+		Contrasena:<input type ="password" id="passwordC" name="passwordC"/></br>
+		<input type="submit" id="confirmarCrear" value="crear">
+	</form>
+	</body>
+</html>

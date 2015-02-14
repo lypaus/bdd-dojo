@@ -1,0 +1,12 @@
+<html>
+	<head></head>
+	<body>
+			<h1 id="saludo">${saludo}</h1>
+			<form action="/pago" method="POST">
+			<input type="submit" id="pago" value="pago"/>
+			</form>
+			<form action="/crearUsuario" method="POST">
+			<input type="submit" id="crearUsuario" value="Registrar Usuario"/>
+			</form>
+	</body>
+</html>

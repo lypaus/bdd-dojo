@@ -1,0 +1,14 @@
+<html>
+	<head><title>MiAbog.com</title></head>
+	<body>
+		<h3>PAGO SERVICIO</h3>
+		<form action="/confirmar" method="POST">
+			Nombre:   <input type="text" id="nombreP" name="nombreP"/></br>
+			Cedula:   <input type="text" id="cedulaP" name="cedulaP"/></br>
+			Fecha Ven:<input type="text" id="fechaP" name="fechaP"/></br>
+			Numero Tarjeta:      <input type="text" id="numeroP" name="numeroP"/></br>
+			Codigo de Seguridad: <input type="password" id="codigoP" name="codigoP"/></br>
+			<input type="submit" id="confirmar" value="confirmar"> 
+		</form>
+	</body>
+</html>
