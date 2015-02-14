@@ -22,6 +22,13 @@ public class Spark {
 
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
+            model.put("mensajedeopcion", "Binevenido al home de miAbog.com");
+            //model.put("mensajecalendario", "Ingresar los datos del formulario");
+            return new ModelAndView(model, "home.wm");
+        }, new VelocityTemplateEngine());
+        
+        get("/calendario", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
             model.put("titulocalendario", "Agendamiento de citas");
             model.put("mensajecalendario", "Ingresar los datos del formulario");
             return new ModelAndView(model, "calendario.wm");
@@ -37,145 +44,15 @@ public class Spark {
         	
             Map<String, Object> model = new HashMap<>();
             if(agendarcita.agendarCita(fecha,hora,correo,tema)){
-            	model.put("confirmarCita", "Su cita ha sido agendada el dia" + fecha +  " hora:" +  hora + ", puede verificar esta informacion al correo: " + correo);
+            	model.put("confirmarCita", "Su cita ha sido agendada el dia: " + fecha +  "\n hora:" +  hora + ",\n puede verificar esta informacion al correo: " + correo);
+            }else{
+            	model.put("confirmarCita", "Favor ingrese correctamente los datos");
             }
             return new ModelAndView(model, "resultCita.wm");
         }, new VelocityTemplateEngine());
         
-
-        post("/login", (request, response) -> {
-        	
-        	String usuario = request.queryParams("usuario");
-        	String password = request.queryParams("password");
-        	
-            Map<String, Object> model = new HashMap<>();
-            if(loginValidator.validar(usuario, password)){
-            	model.put("saludo", "Bienvenido a MiAbog.com, " + usuario);
-            }
-            return new ModelAndView(model, "login.wm");
-        }, new VelocityTemplateEngine());
         
         
-        	post("/pago", (request, response) -> {
-        	
-        	String usuario = "edwin";
-        	String password = "87654321";
-        	
-            Map<String, Object> model = new HashMap<>();
-            if(loginValidator.validar(usuario, password)){
-            	model.put("saludo", "Bienvenido a MiAbog.com, " + usuario);
-            }
-            return new ModelAndView(model, "pago.wm");
-        }, new VelocityTemplateEngine());
-        	
-        	
-        	post("/confirmar", (request, response) -> {
-            	
-            String numero = request.queryParams("numeroP");
-            String codigo = request.queryParams("codigoP");
-            	
-            Map<String, Object> model = new HashMap<>();
-            if(pagoValidator.validarPago(numero,codigo)){
-                model.put("saludo2", "El pago se ha realizado exitosamente" );
-            }
-            return new ModelAndView(model, "resultPago.wm");
-            }, new VelocityTemplateEngine());
-        	
-        
-        	
-        	post("/crearUsuario", (request, response) -> {
-            		
-            Map<String, Object> model = new HashMap<>();
-            
-            return new ModelAndView(model, "crearUsuario.wm");
-            }, new VelocityTemplateEngine());
-        	
-        	
-        	
-        	post("/confirmarCrear", (request, response) -> {
-            	
-        		String usuario = request.queryParams("usuarioC");
-        		String password = request.queryParams("passwordC");
-        		
-                Map<String, Object> model = new HashMap<>();
-                if(loginValidator.validar(usuario, password)){
-                    model.put("saludo3", "Usuario Creado Corretamente, "+usuario );
-                }
-                return new ModelAndView(model, "resultCrear.wm");
-                }, new VelocityTemplateEngine());
-
     }
-    
-    /**
-    get("/", (request, response) -> {
-        Map<String, Object> model = new HashMap<>();
-        model.put("welcome", "Bienvenido a MiAbog.com el mejor sitio de asesorias");
-        return new ModelAndView(model, "index.wm");
-    }, new VelocityTemplateEngine());
-
-    post("/login", (request, response) -> {
-    	
-    	String usuario = request.queryParams("usuario");
-    	String password = request.queryParams("password");
-    	
-        Map<String, Object> model = new HashMap<>();
-        if(loginValidator.validar(usuario, password)){
-        	model.put("saludo", "Bienvenido a MiAbog.com, " + usuario);
-        }
-        return new ModelAndView(model, "login.wm");
-    }, new VelocityTemplateEngine());
-    
-    
-    	post("/pago", (request, response) -> {
-    	
-    	String usuario = "edwin";
-    	String password = "87654321";
-    	
-        Map<String, Object> model = new HashMap<>();
-        if(loginValidator.validar(usuario, password)){
-        	model.put("saludo", "Bienvenido a MiAbog.com, " + usuario);
-        }
-        return new ModelAndView(model, "pago.wm");
-    }, new VelocityTemplateEngine());
-    	
-    	
-    	post("/confirmar", (request, response) -> {
-        	
-        String numero = request.queryParams("numeroP");
-        String codigo = request.queryParams("codigoP");
-        	
-        Map<String, Object> model = new HashMap<>();
-        if(pagoValidator.validarPago(numero,codigo)){
-            model.put("saludo2", "El pago se ha realizado exitosamente" );
-        }
-        return new ModelAndView(model, "resultPago.wm");
-        }, new VelocityTemplateEngine());
-    	
-    
-    	
-    	post("/crearUsuario", (request, response) -> {
-        		
-        Map<String, Object> model = new HashMap<>();
-        
-        return new ModelAndView(model, "crearUsuario.wm");
-        }, new VelocityTemplateEngine());
-    	
-    	
-    	
-    	post("/confirmarCrear", (request, response) -> {
-        	
-    		String usuario = request.queryParams("usuarioC");
-    		String password = request.queryParams("passwordC");
-    		
-            Map<String, Object> model = new HashMap<>();
-            if(loginValidator.validar(usuario, password)){
-                model.put("saludo3", "Usuario Creado Corretamente, "+usuario );
-            }
-            return new ModelAndView(model, "resultCrear.wm");
-            }, new VelocityTemplateEngine());
-            
-
-}
-*/
 
 }

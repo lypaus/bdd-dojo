@@ -17,11 +17,13 @@
 			<div class="container">
 			<h1 id="mensajecalendario">${mensajecalendario}</h1>
 			<div class="formulariocalendario">
+			<form action="/resulCita" method="POST">
 			Seleccione Fecha: <input type="text" id="datepicker" name="datepicker"/> </br>
 			Seleccione hora: <input type="text" id="hora" name="hora"/></br>
 			Correo Electronico: <input type="text" id="correo" name="correo"/></br>
 			Tema: <input type="text" id="tema" name="tema"/></br></br>
 			<input type="submit" id="agendar" value="agendar"/>
+			</form>
 			</div></div>
 	</body>
 </html>

@@ -8,10 +8,12 @@
 	 </tr>
 	 <tr>
 	 <td>
-	 	<a href="/chat.wm&Opcion="Chat"" target="_self"><img border=0 src="/img/chat.png"></a>
-	 </td>
-	 <td>
-	 <a href="/calendario.wm&Opcion="Calendario"" target="_self"><img border=0 src="/img/calendario.png"></a>
+	 	<form action="/calendario" method="GET">
+			<input type="submit" id="calendario" value="calendario"/>
+			</form>
+		<form action="/chat" method="POST">
+			<input type="submit" id="chat" value="chat"/>
+			</form>
 	 </td>
 	 </tr>
 	 </table>
