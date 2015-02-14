@@ -43,11 +43,16 @@ public class Spark {
         	String tema = request.queryParams("correo");
         	
             Map<String, Object> model = new HashMap<>();
-            if(agendarcita.agendarCita(fecha,hora,correo,tema)){
-            	model.put("confirmarCita", "Su cita ha sido agendada el dia: " + fecha +  "\n hora:" +  hora + ",\n puede verificar esta informacion al correo: " + correo);
-            }else{
-            	model.put("confirmarCita", "Favor ingrese correctamente los datos");
-            }
+            try {
+				if(agendarcita.agendarCita(fecha,hora,correo,tema)){
+					model.put("confirmarCita", "Su cita ha sido agendada el dia: " + fecha +  "\n hora:" +  hora + ",\n puede verificar esta informacion al correo: " + correo);
+				}else{
+					model.put("confirmarCita", "Favor ingrese correctamente los datos");
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
             return new ModelAndView(model, "resultCita.wm");
         }, new VelocityTemplateEngine());
         
