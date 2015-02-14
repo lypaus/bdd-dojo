@@ -1,0 +1,22 @@
+<html>
+	<head><title>MiAbog.com</title></head>
+	<body>
+		<h3>Chat Online</h3>
+		<form action="/enviarmensaje" method="POST">
+			<table width="23%" border="0">
+				  <tr>
+				    <td width="17%"><label for="nombreusuario2">Nombre:</label></td>
+				    <td width="83%"><input name="nombreusuario" type="text" id="nombreusuario" size="40" maxlength="40" /></td>
+				  </tr>
+				  <tr>
+				    <td><label for="mensaje">Mensaje:</label></td>
+				    <td><textarea name="mensaje" id="mensaje" cols="40" rows="5"></textarea></td>
+				  </tr>
+				  <tr>
+				    <td colspan="2" align="center"><input type="submit" name="enviar" id="enviar" value="Enviar" /></td>
+				  </tr>
+			</table>
+			<input type="submit" id="confirmar" value="confirmar"> 
+		</form>
+	</body>
+</html>
