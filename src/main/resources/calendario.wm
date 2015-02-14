@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<titlle><h1 id=titulocalendario">${titulocalendario}</h1></title>
+		<link rel="stylesheet" href="//code.jquery.com//ui/1.11.3//themes/smoothness/jquery-iu.css">
+		<script src="//code.jquery.com/jquery-1-10.2.js"></script>
+		<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+		<link rel="stylesheet" href="/resources/demos/stylee.css">
+		<script>
+		$(function(){
+			$("#datepicker").datepicker({
+			changemonth;true,});
+		});
+		</script>
+	</head>
+	<body>
+			<div class="container">
+			<h1 id="mensajecalendario">${mensajecalendario}</h1>
+			<div class="formulariocalendario">
+			Seleccione Fecha: <input type="text" id="datepicker" name="datepicker"/> </br>
+			Seleccione hora: <input type="text" id="hora" name="hora"/></br>
+			Correo Electronico: <input type="text" id="correo" name="correo"/></br>
+			Tema: <input type="text" id="tema" name="tema"/></br></br>
+			<input type="submit" id="agendar" value="agendar"/>
+			</div></div>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+	<head></head>
+	<body>
+	<div class="container">
+	 <table>
+	 <tr>
+	 	<h1 id="mensajedeopcion">${mensajedeopcion}</h1>
+	 </tr>
+	 <tr>
+	 <td>
+	 	<a href="/chat.wm&Opcion="Chat"" target="_self"><img border=0 src="/img/chat.png"></a>
+	 </td>
+	 <td>
+	 <a href="/calendario.wm&Opcion="Calendario"" target="_self"><img border=0 src="/img/calendario.png"></a>
+	 </td>
+	 </tr>
+	 </table>
+	 </div>
+	</body>
+</html>
