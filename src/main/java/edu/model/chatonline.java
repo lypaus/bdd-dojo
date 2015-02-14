@@ -11,8 +11,13 @@ import javax.swing.JLabel;
 public class chatonline {
 	
 	
-	public boolean enviarmensaje(String correo){
-		
+	public boolean enviarmensaje(String correo,String mensaje){
+		 //Server s=new Server();
+		  //s.ejecutarConexion();
+		  //s.escribirDatos(); 
+		Cliente c=new Cliente();
+		  c.ejecutarConexion();
+		  c.escribirDatos(mensaje);
 		
 		if(isEmail(correo)){
 		  return true;

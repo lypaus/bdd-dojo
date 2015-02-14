@@ -37,7 +37,7 @@ public class Cliente  {
  }
  public void levantarConexion() {
   try{
-   s= new Socket("Dell-PC",5050);//Conectamos el socket al Servidor
+   s= new Socket("localhost",5050);//Conectamos el socket al Servidor
    mostrarTexto("Conectado a: "+s.getInetAddress().getHostName()+"\n");
   }catch(java.net.ConnectException ce){
    mostrarTexto("No hay ningún servicio disponible....\n");
@@ -99,15 +99,17 @@ public class Cliente  {
      cerrarConexion();   
     }   
  }
- public void escribirDatos(){
+ public void escribirDatos(String mensaje){
   while(true){
-   enviar(teclado.nextLine());//Leo por teclado y envio la información
+	  
+   enviar(mensaje);//Leo por teclado y envio la información
+   //enviar(teclado.nextLine())
   }
  }
- public static void main(String[] args)  {
+ /*public static void main(String[] args)  {
   // TODO Auto-generated method stub
   Cliente c=new Cliente();
   c.ejecutarConexion();
   c.escribirDatos();
- }
+ }*/
 }
