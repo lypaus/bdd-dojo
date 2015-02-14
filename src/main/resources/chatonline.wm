@@ -1,12 +1,16 @@
 <html>
 	<head><title>MiAbog.com</title></head>
 	<body>
-		<h3>Chat Online</h3>
+		<h3>Chat Online Gratuito</h3></br>
+		<h3>Puede contactar un asesor por solo una inquietud o pregunta</h3></br>
+		<h3>Este Chat solo durara 10 Minutos</h3></br>
+		<h3>Si lo desea puede preguntar por la asesoria en chat por pago</h3></br>
 		<form action="/enviarmensaje" method="POST">
 			<table width="23%" border="0">
 				  <tr>
 				    <td width="17%"><label for="nombreusuario2">Nombre:</label></td>
 				    <td width="83%"><input name="nombreusuario" type="text" id="nombreusuario" size="40" maxlength="40" /></td>
+				    <td width="83%">Correo Electronico: <input type="text" id="correo" name="correo"/></td>
 				  </tr>
 				  <tr>
 				    <td><label for="mensaje">Mensaje:</label></td>
