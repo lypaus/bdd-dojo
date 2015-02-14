@@ -2,6 +2,7 @@ package edu.model;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.regex.Matcher;
@@ -18,14 +19,19 @@ public class AgendarCita {
 		userData.put("edwin", "87654321");
 	}
 
-	public boolean agendarCita(String fecha, String hora,String correo, String tema){
+	public boolean agendarCita(String fecha, String hora,String correo, String tema) throws ParseException{
 		if (fecha.equals("") || hora.equals("") || correo.equals("") || tema.equals("") ){
 			return false;
 		} else {
 			
 			if(isFechaValida(fecha) && isHoraValida(hora)){
 				if(isEmail(correo)){
-				return true;
+					if(fechaAnterior(fecha)){
+						return true;
+					}else{
+						return false;
+					}
+				
 				}else{
 					return false;
 				}
@@ -68,4 +74,17 @@ public class AgendarCita {
 			}
 
     }
+	
+	public boolean fechaAnterior(String fecha) throws ParseException{
+		
+		SimpleDateFormat formatoDeFecha = new SimpleDateFormat("dd/MM/yyyy");
+		Date fecha2 = formatoDeFecha.parse(fecha);
+		Date fechaActual = new Date();
+		
+		if(fecha2.after(fechaActual)){
+			return true;
+		}else{
+		return false;
+		}
+	}
 }
