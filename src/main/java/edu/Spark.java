@@ -9,6 +9,7 @@ import java.util.Map;
 import edu.model.AgendarCita;
 import edu.model.LoginValidator;
 import edu.model.PagoValidator;
+import edu.model.chatonline;
 import static spark.Spark.get;
 import static spark.Spark.post;
 
@@ -17,6 +18,7 @@ public class Spark {
 	private static LoginValidator loginValidator= new LoginValidator();
 	private static PagoValidator pagoValidator = new PagoValidator();
 	private static AgendarCita agendarcita = new AgendarCita();
+	private static chatonline chatonline2 = new chatonline();
 
     public static void main(String[] args) {
 
@@ -32,6 +34,19 @@ public class Spark {
             model.put("titulocalendario", "Agendamiento de citas");
             model.put("mensajecalendario", "Ingresar los datos del formulario");
             return new ModelAndView(model, "calendario.wm");
+        }, new VelocityTemplateEngine());
+        
+        get("/chat", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "chatonline.wm");
+        }, new VelocityTemplateEngine());
+        
+        post("/enviarmensaje", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String mensaje = request.queryParams("mensaje");
+            String correo = request.queryParams("correo");
+            chatonline2.enviarmensaje(correo, mensaje);
+            return new ModelAndView(model, "chatonline.wm");
         }, new VelocityTemplateEngine());
         
         
